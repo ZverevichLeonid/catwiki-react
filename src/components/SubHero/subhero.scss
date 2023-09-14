@@ -1,0 +1,44 @@
+.sub-hero {
+  background-color: #e3e1dc;
+  border-radius: 0 0 42px 42px;
+  min-height: 500px;
+  margin-bottom: 100px;
+}
+.sub-hero__box {
+  padding: 98px 108px;
+}
+
+.sub-hero__desc {
+  position: relative;
+  color: #291507;
+  font-family: "Montserrat";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 50px;
+  &::after {
+    position: absolute;
+    content: "";
+    border: 3px solid #4d270c;
+    border-radius: 77px;
+    width: 60px;
+    left: 0;
+    margin-top: 15px;
+  }
+}
+.sub-hero__title {
+  color: #291507;
+  font-family: "Montserrat";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  max-width: 530px;
+  margin-bottom: 45px;
+}
+.sub-hero__cards {
+  display: flex;
+  gap: 25px;
+  justify-content: space-between;
+}

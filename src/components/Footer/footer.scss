@@ -1,0 +1,18 @@
+.footer {
+  background-color: black;
+  padding: 15px 50px;
+  border-radius: 42px 42px 0 0;
+}
+.footer__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__desc {
+  color: #fff;
+  font-family: "Montserrat";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
