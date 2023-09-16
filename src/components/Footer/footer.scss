@@ -9,10 +9,15 @@
   align-items: center;
 }
 .footer__desc {
-  color: #fff;
-  font-family: "Montserrat";
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  a {
+    color: #fff;
+    font-family: "Montserrat";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

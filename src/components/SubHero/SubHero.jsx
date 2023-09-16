@@ -1,6 +1,8 @@
 import "./subhero.scss";
 import { useSelector } from "react-redux";
 import BreedCard from "./BreedCard/BreedCard";
+import { HiOutlineArrowNarrowRight } from "react-icons/hi";
+import { Link } from "react-router-dom";
 export const SubHero = () => {
   const breedsData = useSelector((state) => state.breeds.breeds);
   const breedsForShowData = [
@@ -17,6 +19,11 @@ export const SubHero = () => {
         </div>
         <div className="sub-hero__title">
           <h2>66+ Breeds For you to discover</h2>
+          <span>
+            <Link to={"/most-popular-breeds"}>
+              SEE MORE <HiOutlineArrowNarrowRight />
+            </Link>
+          </span>
         </div>
         <div className="sub-hero__cards">
           {breedsForShowData.map((breed) => {

@@ -9,7 +9,6 @@ export const fetchBreedsData = createAsyncThunk(
       },
     });
     const data = await response.json();
-    console.log(data[0].visits);
     const transformedData = await data.map((breed) => ({
       name: breed.name,
       id: breed.id,
@@ -24,6 +23,7 @@ const BreedsSlice = createSlice({
   name: "breeds",
   initialState: {
     breeds: [],
+    mostPopularBreeds: [],
     status: null,
     error: null,
   },
@@ -40,4 +40,5 @@ const BreedsSlice = createSlice({
   },
 });
 
+export const { createMostPopularBreeds } = BreedsSlice.actions;
 export default BreedsSlice.reducer;

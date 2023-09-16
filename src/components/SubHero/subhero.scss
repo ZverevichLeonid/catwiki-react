@@ -28,14 +28,32 @@
   }
 }
 .sub-hero__title {
-  color: #291507;
-  font-family: "Montserrat";
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  max-width: 530px;
-  margin-bottom: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h2 {
+    color: #291507;
+    font-family: "Montserrat";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    max-width: 530px;
+    margin-bottom: 45px;
+  }
+  a {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    color: rgba(41, 21, 7, 0.6);
+    font-family: "Montserrat";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
 }
 .sub-hero__cards {
   display: flex;
