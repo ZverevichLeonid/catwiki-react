@@ -1,23 +1,25 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Footer from "../../Footer/Footer";
 import Header from "../../Header/Header";
 import BreedCardDetails from "../../BreedCardDetails/BreedCardDetails";
 import OtherPhotos from "../../OtherPhotos/OtherPhotos";
 export const BreedPage = () => {
-  let { state } = useLocation();
+  let { name } = useParams();
   const [breed, setBreed] = useState();
   const [breedImages, setBreedImages] = useState([]);
   const [characteristics, setCharacteristics] = useState([]);
   const allBreadsData = useSelector((state) => state.breeds.breedsAllInfo);
+
   useEffect(() => {
     let tempBreed = allBreadsData.find((element) => {
-      if (element.id === state.id) return true;
+      if (name === element.slug) return true;
     });
     setBreed(tempBreed);
-  }, [state, allBreadsData]);
+  }, [name, allBreadsData]);
+
   useEffect(() => {
     const setDataCharacteristics = () => {
       let tempCharacteristics = [];
@@ -35,10 +37,11 @@ export const BreedPage = () => {
     };
     if (breed) setDataCharacteristics();
   }, [breed]);
+
   useEffect(() => {
     async function fetchImages() {
       const response = await fetch(
-        `https://api.thecatapi.com/v1/images/search?size=small&limit=8&breed_id=${state.id}`,
+        `https://api.thecatapi.com/v1/images/search?size=small&limit=8&breed_id=${breed.id}`,
         {
           headers: {
             "x-api-key":
@@ -49,8 +52,8 @@ export const BreedPage = () => {
       const data = await response.json();
       setBreedImages(data);
     }
-    fetchImages();
-  }, [state]);
+    if (breed) fetchImages();
+  }, [breed]);
   return (
     <>
       <Header />

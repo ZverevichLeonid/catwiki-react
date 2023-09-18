@@ -8,13 +8,17 @@ export const fetchBreedsData = createAsyncThunk(
           "live_wYttEEHwc4mwESYYVWqZ4mlRFNGMji101ytMXlrOlztAP6k3KfwMEaLiMGk6iO7z",
       },
     });
-    const data = await response.json();
+    let data = await response.json();
     const transformedData = await data.map((breed) => ({
       name: breed.name,
       id: breed.id,
       image: breed.image?.url || "",
       description: breed.description,
       slug: breed.name.toLowerCase().replaceAll(" ", "-"),
+    }));
+    data = data.map((data) => ({
+      ...data,
+      slug: data.name.toLowerCase().replaceAll(" ", "-"),
     }));
     return { transformedData, data };
   }

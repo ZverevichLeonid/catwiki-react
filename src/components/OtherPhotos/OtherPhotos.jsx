@@ -1,9 +1,8 @@
 import "./otherphotos.scss";
 import React from "react";
 export const OtherPhotos = ({ breedImages }) => {
-  console.log(breedImages);
   return (
-    <div className="other-photos">
+    <section className="other-photos">
       <h3 className="other-photos__title">Other photos</h3>
       <div className="other-photos__grid">
         {breedImages.map((image) => {
@@ -16,7 +15,7 @@ export const OtherPhotos = ({ breedImages }) => {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 
