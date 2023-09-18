@@ -1,0 +1,26 @@
+.other-photos {
+  margin-bottom: 176px;
+}
+.other-photos__title {
+  color: #291507;
+  font-family: "Montserrat";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 40px;
+}
+
+.other-photos__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 46px;
+  row-gap: 46px;
+}
+
+.other-photo__img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 24px;
+}

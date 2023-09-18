@@ -11,6 +11,7 @@ export const SubHero = () => {
     { ...breedsData[8] },
     { ...breedsData[20] },
   ];
+  // ПЕРЕДЕЛАТЬ НА КОНСТАНТЫ
   return (
     <section className="sub-hero">
       <div className="sub-hero__box">
@@ -31,8 +32,10 @@ export const SubHero = () => {
               breedsData.length > 0 && (
                 <BreedCard
                   key={breed.id}
+                  id={breed.id}
                   name={breed.name}
                   image={breed.image}
+                  slug={breed.slug}
                 />
               )
             );

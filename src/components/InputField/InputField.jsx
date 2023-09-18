@@ -2,6 +2,7 @@ import "./inputfield.scss";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 export const InputField = () => {
   const allBreeds = useSelector((state) => state.breeds.breeds);
   const [inputBreed, setInputBreed] = useState("");
@@ -23,17 +24,23 @@ export const InputField = () => {
     setInputBreed(keyword);
   }
   const displayBreeds = foundBreeds.map((breed) => {
-    return <li key={breed.id}>{breed.name}</li>;
+    return (
+      <Link state={{ id: breed.id }} key={breed.id} to={`/breed/${breed.slug}`}>
+        <li>{breed.name}</li>
+      </Link>
+    );
   });
 
   return (
-    <div className="input-field">
+    <div
+      onMouseLeave={() => setIsFocus(false)}
+      onClick={() => setIsFocus(true)}
+      className="input-field"
+    >
       <input
         value={inputBreed}
         onChange={(e) => searchHandler(e)}
         className="input"
-        onClick={() => setIsFocus(true)}
-        onBlur={() => setIsFocus(false)}
         placeholder="Enter your breed"
         type="text"
       />

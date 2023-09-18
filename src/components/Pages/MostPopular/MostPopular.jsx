@@ -1,10 +1,11 @@
-import Footer from "../../Footer/Footer";
-import Header from "../../Header/Header";
 import { useSelector } from "react-redux";
 import { mostPopularBreedsIds } from "../../../MostPopularBreedsList";
 import { useEffect, useState } from "react";
-import "./mostpopular.scss";
+import Footer from "../../Footer/Footer";
+import Header from "../../Header/Header";
 import MostPopularCard from "../../MostPopularCard/MostPopularCard";
+import "./mostpopular.scss";
+
 export const MostPopular = () => {
   const allBreadsData = useSelector((state) => state.breeds.breeds);
   const [mostPopularBreedsList, setMostPopularBreedsList] = useState([]);
@@ -31,10 +32,12 @@ export const MostPopular = () => {
             mostPopularBreedsList.map((breed, index) => (
               <MostPopularCard
                 index={index}
+                id={breed.id}
                 key={breed.id}
                 image={breed.image}
                 name={breed.name}
                 desc={breed.description}
+                slug={breed.slug}
               />
             ))}
         </div>

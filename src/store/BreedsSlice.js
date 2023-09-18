@@ -14,8 +14,9 @@ export const fetchBreedsData = createAsyncThunk(
       id: breed.id,
       image: breed.image?.url || "",
       description: breed.description,
+      slug: breed.name.toLowerCase().replaceAll(" ", "-"),
     }));
-    return transformedData;
+    return { transformedData, data };
   }
 );
 
@@ -23,7 +24,7 @@ const BreedsSlice = createSlice({
   name: "breeds",
   initialState: {
     breeds: [],
-    mostPopularBreeds: [],
+    breedsAllInfo: [],
     status: null,
     error: null,
   },
@@ -34,7 +35,9 @@ const BreedsSlice = createSlice({
       state.error = null;
     },
     [fetchBreedsData.fulfilled]: (state, action) => {
-      (state.staus = "resolved"), (state.breeds = action.payload);
+      state.staus = "resolved";
+      state.breeds = action.payload.transformedData;
+      state.breedsAllInfo = action.payload.data;
     },
     [fetchBreedsData.rejected]: (state, action) => {},
   },

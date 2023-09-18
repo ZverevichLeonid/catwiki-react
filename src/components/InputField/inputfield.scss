@@ -27,7 +27,6 @@
 
 .breeds {
   position: absolute;
-  scrollbar-width: thin;
   width: 100%;
   max-height: 290px;
   font-size: 1.1rem;
@@ -36,8 +35,6 @@
   top: 101%;
   background-color: white;
   padding: 15px;
-  &::-webkit-scrollbar {
-  }
   li {
     padding: 15px;
     color: #000;
@@ -46,6 +43,9 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    &:hover {
+      background-color: rgba(151, 151, 151, 0.1);
+    }
   }
   animation: searchItems 200ms ease-in;
 }

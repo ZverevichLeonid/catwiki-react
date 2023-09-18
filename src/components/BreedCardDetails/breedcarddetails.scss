@@ -1,0 +1,98 @@
+.breed-details {
+  margin-bottom: 80px;
+}
+.breed-details__box {
+  display: flex;
+  gap: 115px;
+}
+
+.breed-details__img {
+  position: relative;
+  min-width: 300px;
+  min-height: 300px;
+  max-width: 300px;
+  max-height: 300px;
+  img {
+    border-radius: 25px;
+    min-width: 300px;
+    min-height: 300px;
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: cover;
+  }
+  &::before {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    background-color: #dec68b;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 85%;
+    width: 15px;
+    border-radius: 14px;
+  }
+}
+.breed-details__name {
+  color: #291507;
+  font-family: "Montserrat";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.breed-details__info {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  color: #291507;
+  font-family: "Montserrat";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  span {
+    color: #000;
+    font-family: "Montserrat";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+}
+.breed-details__desc {
+  color: #291507;
+  font-family: "Montserrat";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.breed-details__characteristic {
+  display: flex;
+}
+.breed-details__characteristic-title {
+  min-width: 200px;
+  color: #000;
+  font-family: "Montserrat";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.breed-details__characteristic-rating {
+  display: flex;
+  gap: 8px;
+}
+.breed-details__characteristic-empty {
+  width: 60px;
+  height: 12px;
+  border-radius: 8px;
+  background: #e0e0e0;
+}
+.breed-details__characteristic-filled {
+  background: #544439;
+  width: 60px;
+  height: 12px;
+  border-radius: 8px;
+}
