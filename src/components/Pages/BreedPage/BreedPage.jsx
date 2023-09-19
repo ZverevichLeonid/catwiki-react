@@ -2,24 +2,30 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import Footer from "../../Footer/Footer";
-import Header from "../../Header/Header";
-import BreedCardDetails from "../../BreedCardDetails/BreedCardDetails";
-import OtherPhotos from "../../OtherPhotos/OtherPhotos";
+import { Suspense } from "react";
+import { lazy } from "react";
+import Loader from "../../Loader/Loader";
+const Footer = lazy(() => import("../../Footer/Footer"));
+const Header = lazy(() => import("../../Header/Header"));
+const BreedCardDetails = lazy(() =>
+  import("../../BreedCardDetails/BreedCardDetails")
+);
+const OtherPhotos = lazy(() => import("../../OtherPhotos/OtherPhotos"));
 export const BreedPage = () => {
   let { name } = useParams();
   const [breed, setBreed] = useState();
   const [breedImages, setBreedImages] = useState([]);
   const [characteristics, setCharacteristics] = useState([]);
   const allBreadsData = useSelector((state) => state.breeds.breedsAllInfo);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useEffect(() => {
     let tempBreed = allBreadsData.find((element) => {
       if (name === element.slug) return true;
     });
     setBreed(tempBreed);
   }, [name, allBreadsData]);
-
   useEffect(() => {
     const setDataCharacteristics = () => {
       let tempCharacteristics = [];
@@ -37,11 +43,10 @@ export const BreedPage = () => {
     };
     if (breed) setDataCharacteristics();
   }, [breed]);
-
   useEffect(() => {
     async function fetchImages() {
       const response = await fetch(
-        `https://api.thecatapi.com/v1/images/search?size=small&limit=8&breed_id=${breed.id}`,
+        `https://api.thecatapi.com/v1/images/search?size=small&include_breeds=false&limit=8&breed_id=${breed.id}`,
         {
           headers: {
             "x-api-key":
@@ -50,26 +55,31 @@ export const BreedPage = () => {
         }
       );
       const data = await response.json();
+      console.log(data);
       setBreedImages(data);
     }
     if (breed) fetchImages();
   }, [breed]);
   return (
     <>
-      <Header />
-      {breed && (
-        <BreedCardDetails
-          name={breed.name}
-          image={breed.image}
-          desc={breed.description}
-          temperament={breed.temperament}
-          origin={breed.origin}
-          lifeSpan={breed.life_span}
-          characteristics={characteristics}
-        />
-      )}
-      {breedImages && <OtherPhotos breedImages={breedImages} />}
-      <Footer />
+      <Suspense fallback={<Loader />}>
+        {breed && breedImages && (
+          <>
+            <Header />
+            <BreedCardDetails
+              name={breed?.name}
+              image={breed?.image}
+              desc={breed?.description}
+              temperament={breed?.temperament}
+              origin={breed?.origin}
+              lifeSpan={breed?.life_span}
+              characteristics={characteristics}
+            />
+            <OtherPhotos breedImages={breedImages} />
+            <Footer />
+          </>
+        )}
+      </Suspense>
     </>
   );
 };

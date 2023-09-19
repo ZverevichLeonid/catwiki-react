@@ -47,5 +47,4 @@ const BreedsSlice = createSlice({
   },
 });
 
-export const { createMostPopularBreeds } = BreedsSlice.actions;
 export default BreedsSlice.reducer;

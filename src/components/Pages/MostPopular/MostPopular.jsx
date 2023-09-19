@@ -11,15 +11,19 @@ export const MostPopular = () => {
   const [mostPopularBreedsList, setMostPopularBreedsList] = useState([]);
   useEffect(() => {
     let tempArr = [];
-    for (let i = 0; i < mostPopularBreedsIds.length; i++) {
-      let breed = allBreadsData.filter(
-        (breed) => mostPopularBreedsIds[i] === breed.id
-      );
-      tempArr = [...tempArr, ...breed];
+    if (allBreadsData.length > 0) {
+      for (let i = 0; i < mostPopularBreedsIds.length; i++) {
+        let breed = allBreadsData.filter(
+          (breed) => mostPopularBreedsIds[i] === breed.id
+        );
+        tempArr = [...tempArr, ...breed];
+      }
+      setMostPopularBreedsList([...tempArr]);
     }
-    setMostPopularBreedsList([...tempArr]);
   }, [allBreadsData]);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Header />

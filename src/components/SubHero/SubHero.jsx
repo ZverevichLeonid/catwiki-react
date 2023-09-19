@@ -1,17 +1,26 @@
-import "./subhero.scss";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import BreedCard from "./BreedCard/BreedCard";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { mostPopularBreedsIds } from "../../MostPopularBreedsList/index";
+import BreedCard from "./BreedCard/BreedCard";
+import "./subhero.scss";
+
 export const SubHero = () => {
   const breedsData = useSelector((state) => state.breeds.breeds);
-  const breedsForShowData = [
-    { ...breedsData[0] },
-    { ...breedsData[4] },
-    { ...breedsData[8] },
-    { ...breedsData[20] },
-  ];
-  // ПЕРЕДЕЛАТЬ НА КОНСТАНТЫ
+  const [breedsForShowData, setBreedsForShowData] = useState([]);
+  useEffect(() => {
+    let tempArr = [];
+    if (breedsData.length > 0) {
+      for (let i = 0; i < 4; i++) {
+        let breed = breedsData.filter(
+          (breed) => mostPopularBreedsIds[i] === breed.id
+        );
+        tempArr = [...tempArr, ...breed];
+      }
+      setBreedsForShowData([...tempArr]);
+    }
+  }, [breedsData]);
   return (
     <section className="sub-hero">
       <div className="sub-hero__box">

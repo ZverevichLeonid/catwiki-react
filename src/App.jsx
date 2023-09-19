@@ -1,11 +1,19 @@
-import Home from "./components/Pages/Home/Home.jsx";
-import MostPopular from "./components/Pages/MostPopular/MostPopular.jsx";
-import Wrapper from "./components/Wrapper/Wrapper.jsx";
 import { useEffect } from "react";
 import { fetchBreedsData } from "./store/BreedsSlice.js";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Route, Routes, Navigate } from "react-router-dom";
-import BreedPage from "./components/Pages/BreedPage/BreedPage.jsx";
+import { lazy } from "react";
+import { Suspense } from "react";
+const BreedPage = lazy(() =>
+  import("./components/Pages/BreedPage/BreedPage.jsx")
+);
+const MostPopular = lazy(() =>
+  import("./components/Pages/MostPopular/MostPopular.jsx")
+);
+const Home = lazy(() => import("./components/Pages/Home/Home.jsx"));
+const Wrapper = lazy(() => import("./components/Wrapper/Wrapper.jsx"));
+
+import Loader from "./components/Loader/Loader.jsx";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -13,14 +21,16 @@ function App() {
   }, [dispatch]);
 
   return (
-    <Wrapper>
-      <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/most-popular-breeds" element={<MostPopular />} />
-        <Route path="/breed/:name" element={<BreedPage />} />
-        <Route path="*" element={<Navigate to="/home" />} />
-      </Routes>
-    </Wrapper>
+    <Suspense fallback={<Loader />}>
+      <Wrapper>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/most-popular-breeds" element={<MostPopular />} />
+          <Route path="/breed/:name" element={<BreedPage />} />
+          <Route path="*" element={<Navigate to="/home" />} />
+        </Routes>
+      </Wrapper>
+    </Suspense>
   );
 }
 

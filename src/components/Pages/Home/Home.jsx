@@ -1,16 +1,22 @@
-import Footer from "../../Footer/Footer";
-import HaveAcat from "../../HaveAcat/HaveAcat";
-import Header from "../../Header/Header";
-import Hero from "../../Hero/Hero";
-import SubHero from "../../SubHero/SubHero";
+import { lazy } from "react";
+import { Suspense } from "react";
+import Loader from "../../Loader/Loader";
+const Footer = lazy(() => import("../../Footer/Footer"));
+const HaveAcat = lazy(() => import("../../HaveAcat/HaveAcat"));
+const Header = lazy(() => import("../../Header/Header"));
+const Hero = lazy(() => import("../../Hero/Hero"));
+const SubHero = lazy(() => import("../../SubHero/SubHero"));
+
 export const Home = () => {
   return (
     <>
-      <Header />
-      <Hero />
-      <SubHero />
-      <HaveAcat />
-      <Footer />
+      <Suspense fallback={<Loader />}>
+        <Header />
+        <Hero />
+        <SubHero />
+        <HaveAcat />
+        <Footer />
+      </Suspense>
     </>
   );
 };
