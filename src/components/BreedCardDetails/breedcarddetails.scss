@@ -70,6 +70,7 @@
 }
 .breed-details__characteristic {
   display: flex;
+  align-items: center;
 }
 .breed-details__characteristic-title {
   min-width: 200px;
@@ -95,4 +96,77 @@
   width: 60px;
   height: 12px;
   border-radius: 8px;
+}
+
+@media (max-width: 1024px) {
+  .breed-details__box {
+    gap: 50px;
+  }
+}
+@media (max-width: 926px) {
+  .breed-details__box {
+    flex-direction: column;
+  }
+}
+@media (max-width: 573px) {
+  .breed-details__characteristic {
+    justify-content: space-between;
+  }
+  .breed-details__characteristic-title {
+    min-width: 150px;
+  }
+  .breed-details__box {
+    gap: 30px;
+  }
+  .breed-details {
+    margin-bottom: 45px;
+  }
+  .breed-details__name {
+    font-size: 30px;
+  }
+  .breed-details__desc {
+    font-size: 16px;
+  }
+  .breed-details__info {
+    gap: 20px;
+  }
+  .breed-details__characteristic-empty {
+    width: 25px;
+    height: 8px;
+  }
+  .breed-details__characteristic-filled {
+    width: 25px;
+    height: 8px;
+  }
+}
+@media (max-width: 426px) {
+  .breed-details__name {
+    font-size: 26px;
+  }
+}
+@media (max-width: 376px) {
+  .breed-details {
+    margin-bottom: 30px;
+  }
+  .breed-details__box {
+    gap: 20px;
+  }
+  .breed-details__img {
+    min-width: 250px;
+    min-height: 250px;
+    img {
+      min-width: 250px;
+      min-height: 250px;
+      max-width: 250px;
+      max-height: 250px;
+    }
+  }
+  .breed-details__characteristic-empty {
+    width: 20px;
+    height: 7px;
+  }
+  .breed-details__characteristic-filled {
+    width: 20px;
+    height: 7px;
+  }
 }

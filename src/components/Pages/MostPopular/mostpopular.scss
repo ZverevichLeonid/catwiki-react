@@ -14,3 +14,20 @@
   gap: 55px;
   margin-bottom: 90px;
 }
+@media (max-width: 769px) {
+  .most-popular-breeds__title {
+    margin-bottom: 25px;
+  }
+  .most-popular-breed {
+    flex-direction: column;
+    align-items: center;
+  }
+  .most-popular-breeds__list {
+    gap: 25px;
+  }
+}
+@media (max-width: 425px) {
+  .most-popular-breeds__title {
+    font-size: 30px;
+  }
+}

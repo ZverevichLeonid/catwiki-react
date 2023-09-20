@@ -1,26 +1,9 @@
-.breed-card {
-  position: relative;
-  min-width: 220px;
-  min-height: 220px;
-}
-
 .breed-card__img {
   width: 220px;
   height: 220px;
+  object-fit: cover;
   border-radius: 24px;
   margin-bottom: 20px;
-  object-fit: cover;
-  &::before {
-    position: absolute;
-    content: "";
-    background-color: #dec68b;
-    left: -8px;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 85%;
-    width: 15px;
-    border-radius: 14px;
-  }
 }
 .breed-card__name {
   color: #291507;

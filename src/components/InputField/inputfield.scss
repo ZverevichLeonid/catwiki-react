@@ -32,7 +32,7 @@
   font-size: 1.1rem;
   overflow-y: scroll;
   z-index: 1;
-  top: 101%;
+  top: 99%;
   background-color: white;
   padding: 15px;
   li {
@@ -65,5 +65,17 @@
 
   100% {
     opacity: 1;
+  }
+}
+@media (max-width: 375px) {
+  .input::placeholder {
+    font-size: 14px;
+  }
+  .breeds {
+    top: 99%;
+    li {
+      padding: 13px;
+      font-size: 14px;
+    }
   }
 }
