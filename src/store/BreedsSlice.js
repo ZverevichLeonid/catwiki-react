@@ -43,7 +43,11 @@ const BreedsSlice = createSlice({
       state.breeds = action.payload.transformedData;
       state.breedsAllInfo = action.payload.data;
     },
-    [fetchBreedsData.rejected]: (state, action) => {},
+    [fetchBreedsData.rejected]: (state, action) => {
+      state.status = "rejected";
+      state.error = true;
+      alert("Error connecting to server, try again later");
+    },
   },
 });
 
