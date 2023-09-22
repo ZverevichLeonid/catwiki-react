@@ -2,8 +2,9 @@ import Logo from "../Logo/Logo";
 import mobileIMG from "../../assets/HeroImagesm.png";
 import tabletIMG from "../../assets/HeroImagemd.png";
 import desktopIMG from "../../assets/HeroImagelg.png";
-import "./hero.scss";
 import InputField from "../InputField/InputField";
+import "./hero.scss";
+
 export const Hero = () => {
   return (
     <section className="hero">

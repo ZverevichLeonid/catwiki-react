@@ -1,5 +1,6 @@
-import "./otherphotos.scss";
 import React from "react";
+import "./otherphotos.scss";
+
 export const OtherPhotos = ({ breedImages }) => {
   return (
     <section className="other-photos">

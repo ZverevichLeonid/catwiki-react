@@ -1,7 +1,7 @@
-import "./haveacat.scss";
 import imgFirst from "../../assets/image1.png";
 import imgSecond from "../../assets/image2.png";
 import imgThird from "../../assets/image3.png";
+import "./haveacat.scss";
 
 export const HaveAcat = ({}) => {
   return (

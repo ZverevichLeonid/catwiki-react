@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState, useLayoutEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Suspense } from "react";
@@ -17,15 +17,18 @@ export const BreedPage = () => {
   const [breedImages, setBreedImages] = useState([]);
   const [characteristics, setCharacteristics] = useState([]);
   const allBreadsData = useSelector((state) => state.breeds.breedsAllInfo);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   useEffect(() => {
     let tempBreed = allBreadsData.find((element) => {
       if (name === element.slug) return true;
     });
     setBreed(tempBreed);
   }, [name, allBreadsData]);
+
   useEffect(() => {
     const setDataCharacteristics = () => {
       let tempCharacteristics = [];
@@ -43,6 +46,7 @@ export const BreedPage = () => {
     };
     if (breed) setDataCharacteristics();
   }, [breed]);
+
   useEffect(() => {
     async function fetchImages() {
       const response = await fetch(
@@ -59,6 +63,7 @@ export const BreedPage = () => {
     }
     if (breed) fetchImages();
   }, [breed]);
+
   return (
     <>
       <Suspense fallback={<Loader />}>

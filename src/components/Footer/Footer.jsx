@@ -1,6 +1,6 @@
+import { Link } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import "./footer.scss";
-import { Link } from "react-router-dom";
 export const Footer = () => {
   return (
     <footer className="footer">

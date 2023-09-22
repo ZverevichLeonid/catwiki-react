@@ -1,5 +1,6 @@
-import "./breedcard.scss";
 import { Link } from "react-router-dom";
+import "./breedcard.scss";
+
 export const BreedCard = ({ name, image, slug, id }) => {
   return (
     <Link state={{ id: id }} to={`/breed/${slug}`}>

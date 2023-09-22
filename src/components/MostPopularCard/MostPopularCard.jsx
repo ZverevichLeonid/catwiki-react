@@ -1,5 +1,6 @@
-import "./mostpopularcard.scss";
 import { Link } from "react-router-dom";
+import "./mostpopularcard.scss";
+
 export const MostPopularCard = ({ image, name, desc, index, slug, id }) => {
   return (
     <>

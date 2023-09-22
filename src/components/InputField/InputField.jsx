@@ -1,8 +1,9 @@
-import "./inputfield.scss";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import "./inputfield.scss";
+
 export const InputField = () => {
   const allBreeds = useSelector((state) => state.breeds.breeds);
   const [inputBreed, setInputBreed] = useState("");

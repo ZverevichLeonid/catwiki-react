@@ -1,5 +1,6 @@
-import "./breedcarddetails.scss";
 import React from "react";
+import "./breedcarddetails.scss";
+
 export const BreedCardDetails = ({
   image,
   name,
