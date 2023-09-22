@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import { mostPopularBreedsIds } from "../../MostPopularBreedsList/index";
+import { mostPopularBreedsIds } from "../../MostPopularBreedsIds/index";
 import BreedCard from "./BreedCard/BreedCard";
 import "./subhero.scss";
 

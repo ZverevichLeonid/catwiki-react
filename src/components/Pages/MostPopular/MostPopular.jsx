@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { mostPopularBreedsIds } from "../../../MostPopularBreedsList";
+import { mostPopularBreedsIds } from "../../../MostPopularBreedsIds";
 import { useEffect, useState } from "react";
 import Footer from "../../Footer/Footer";
 import Header from "../../Header/Header";
