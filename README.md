@@ -6,4 +6,4 @@
 - Vite
 - Adaptive design up to 320px
 
-You can look at the link [CatWiki](catwiki-react-redux.vercel.app)
+You can look at the link [CatWiki](https://catwiki-react-redux.vercel.app/p)
