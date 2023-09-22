@@ -53,6 +53,9 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 .sub-hero__cards {
